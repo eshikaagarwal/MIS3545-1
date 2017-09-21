@@ -46,3 +46,18 @@ FROM Production.ProductModel AS m
 left outer join Production.Product AS p
 ON p.ProductModelID=m.ProductModelID
 WHERE p.ProductID is null;
+
+
+/*for comparison, below is inner join*/ 
+Select m.ProductModelID, m.Name as model_name,  p.ProductID,  p.Name as product_name
+From Production.Product as p
+join Production.ProductModel as m
+on p.ProductModelID=m.ProductModelID
+where p.ProductID is null;
+
+/*for comparison, below is full outer join*/ 
+Select m.ProductModelID, m.Name as model_name,  p.ProductID,  p.Name as product_name
+From Production.Product as p
+full outer join Production.ProductModel as m
+on p.ProductModelID=m.ProductModelID
+where m.ProductModelID is null;
